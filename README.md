@@ -18,10 +18,12 @@
 |---|---|
 | `crisp_dm_2330.py` | 完整 CRISP-DM 六階段(EDA、ADF 平穩性檢定、ACF/PACF、殘差診斷) |
 | `arima_vs_ar20.py` | 精簡版比較腳本 |
+| `forecast_30d.py` | 未來 30 交易日預測 + 喇叭圖(fan chart) |
 | `phase2_eda.png` | 價格 / 報酬 / ACF / PACF |
 | `phase5_comparison.png` | 三模型預測 vs 實際 |
 | `phase5_residuals.png` | ARIMA 殘差診斷 |
 | `phase6_model_metrics.csv` | 評估指標表 |
+| `forecast_30d.png` / `forecast_30d.csv` | 30 日預測喇叭圖與預測表 |
 
 ## 執行
 
@@ -29,7 +31,15 @@
 pip install -r requirements.txt
 python crisp_dm_2330.py     # 完整 CRISP-DM 流程
 python arima_vs_ar20.py     # 精簡比較
+python forecast_30d.py      # 未來 30 日喇叭圖
 ```
+
+## 未來 30 交易日預測(喇叭圖)
+
+![30 日預測喇叭圖](forecast_30d.png)
+
+ARIMA(0,1,0) 預測均值為水平線(隨機漫步),信賴區間隨步數以 √步數 張開成喇叭狀;
+橘虛線為 AR(20) 遞迴多步預測(誤差會累積,僅供對照)。
 
 ## 主要發現
 
